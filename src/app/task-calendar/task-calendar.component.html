@@ -1,6 +1,6 @@
 <ng-container *ngIf="!isLoading">
   <mat-toolbar color='secondary'>
-    <div class="d-flex justify-content-start align-items-center">
+    <div class="d-flex justify-content-center align-items-center">
       <button [color]="'primary'" mat-flat-button (click)="showCurrentMonth()">Fecha de Trabajo</button>
       <button mat-icon-button class="ml-4" (click)="showPreviousMonth()">
         <mat-icon>arrow_back_ios</mat-icon>
@@ -11,7 +11,7 @@
       <span class="ml-1">{{ dateFormatted | titlecase }}</span>
     </div>
   </mat-toolbar>
-  <div class="task-container p-3">
+  <div class="task-container p-5">
     <ng-container *ngFor="let date of calendarDates; let i = index">
       <app-task-calendar-day [date]="date"></app-task-calendar-day>
     </ng-container>

@@ -1,5 +1,6 @@
 <ng-container *ngIf="!isLoading">
   <div class="task-day-container d-flex justify-content-center p-1" (click)="openDetail()">
-    <span [style.color]="isCurrentDay ? 'green' : ''"  class="font-weight-bold">{{ date.format('LL') }}</span>
+    <span [style.color]="isCurrentDay ? 'green' : ''"
+          class="font-weight-bold">{{ date.format('dddd DD') }}</span>
   </div>
 </ng-container>
