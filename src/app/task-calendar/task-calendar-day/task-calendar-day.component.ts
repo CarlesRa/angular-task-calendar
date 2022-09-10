@@ -4,8 +4,8 @@ import * as moment from 'moment';
 import {MatDialog} from "@angular/material/dialog";
 import {Subscription} from "rxjs";
 import {TaskCalendarDayDialogComponent} from "../dialogs/task-calendar-day-dialog/task-calendar-day-dialog.component";
-import {Work} from "../../models/work.model";
-import {CalendarMessageService} from "../../services/calendar-message.service";
+import {Work} from "../models/work.model";
+import {CalendarMessageService} from "../services/calendar-message.service";
 
 @Component({
   selector: 'app-task-calendar-day',

@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
-import {TOOLBAR_DATE_FORMAT} from "../constants/calendar-constants";
+import {TOOLBAR_DATE_FORMAT} from "./constants/calendar-constants";
 import {Moment} from "moment";
-import {CalendarLocale} from "../types/calendar-locale.type";
-import {Work} from "../models/work.model";
-import {CalendarMessageService} from "../services/calendar-message.service";
+import {CalendarLocale} from "./types/calendar-locale.type";
+import {Work} from "./models/work.model";
+import {CalendarMessageService} from "./services/calendar-message.service";
 import {BehaviorSubject} from "rxjs";
-import {Task} from "../models/task.model";
+import {Task} from "./models/task.model";
 
 @Component({
   selector: 'app-task-calendar',
