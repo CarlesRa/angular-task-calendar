@@ -1,7 +1,7 @@
 <ng-container *ngIf="!isLoading">
-  <mat-toolbar color='secondary'>
-    <div class="d-flex justify-content-center align-items-center">
-      <button [color]="'primary'" mat-flat-button (click)="showCurrentMonth()">Fecha de Trabajo</button>
+  <mat-toolbar class="calendar-toolbar" color='secondary'>
+    <div class="ml-4 d-flex justify-content-center align-items-center">
+      <button [color]="'primary'" mat-flat-button (click)="showCurrentMonth()">Hoy</button>
       <button mat-icon-button class="ml-4" (click)="showPreviousMonth()">
         <mat-icon>arrow_back_ios</mat-icon>
       </button>

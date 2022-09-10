@@ -4,3 +4,10 @@
   grid-template-columns: repeat(7, 1fr);
   grid-gap: 1px;
 }
+
+.calendar-toolbar {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 100;
+}

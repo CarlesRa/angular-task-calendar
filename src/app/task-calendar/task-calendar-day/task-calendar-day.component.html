@@ -1,6 +1,17 @@
 <ng-container *ngIf="!isLoading">
-  <div class="task-day-container d-flex justify-content-center p-1" (click)="openDetail()">
-    <span [style.color]="isCurrentDay ? 'green' : ''"
-          class="font-weight-bold">{{ date.format('dddd DD') }}</span>
+  <div class="task-day-container d-flex flex-column p-1" (click)="openDetail()">
+    <div class="d-flex justify-content-center ">
+      <span [style.color]="isCurrentDay ? 'green' : ''"
+            class="font-weight-bold">{{ date.format('dddd DD') | titlecase }}</span>
+    </div>
+    <div>
+      <ul>
+        <ng-container *ngFor="let task of job?.tasks">
+          <li>
+            <span class="badge badge-info">{{ task.name }}</span>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
   </div>
 </ng-container>
