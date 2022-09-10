@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
 import {TOOLBAR_DATE_FORMAT} from "../constants/calendar-constants";
-import {Moment} from "moment";
+import {locale, Moment} from "moment";
+import {CalendarLocale} from "../types/calendar-locale.type";
 
 @Component({
   selector: 'app-task-calendar',
@@ -9,13 +10,14 @@ import {Moment} from "moment";
   styleUrls: ['./task-calendar.component.css']
 })
 export class TaskCalendarComponent implements OnInit {
+  @Input() dateLocale: CalendarLocale = 'es';
   isLoading = true;
   dateFormatted!: string;
   dateSelected!: Date;
   calendarDates: Moment[] = [];
 
   constructor() {
-    moment.locale('es');
+    moment.locale(this.dateLocale);
     this.showCurrentMonth();
   }
 
