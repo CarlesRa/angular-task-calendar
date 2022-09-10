@@ -1,0 +1,20 @@
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.task-day-container {
+  background: cornflowerblue;
+  border: 2px solid black;
+  width: 100%;
+  height: 17vh;
+}
+.task-day-container:hover {
+  background-color: gold;
+  animation: zoomIn 200ms linear;
+  transform: scale(1.2);
+}
