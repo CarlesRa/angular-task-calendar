@@ -6,6 +6,7 @@ import {Subscription} from "rxjs";
 import {TaskCalendarDayDialogComponent} from "../dialogs/task-calendar-day-dialog/task-calendar-day-dialog.component";
 import {Work} from "../models/work.model";
 import {CalendarMessageService} from "../services/calendar-message.service";
+import {CalendarUtilsService} from "../services/calendar-utils.service";
 
 @Component({
   selector: 'app-task-calendar-day',
@@ -13,21 +14,26 @@ import {CalendarMessageService} from "../services/calendar-message.service";
   styleUrls: ['./task-calendar-day.component.css']
 })
 export class TaskCalendarDayComponent implements OnInit, OnDestroy {
-  @Input() date!: Moment;
+ /* @Input() date!: Moment;*/
+  @Input() date!: Date;
   works: Work[] = [];
+  subscriptions: Subscription[] = [];
+  dateFormat: Intl.DateTimeFormatOptions = {  weekday: 'long', day: 'numeric' } as const;
+  dateFormatted!: string;
   isLoading = true;
   isCurrentDay!: boolean;
-  subscriptions: Subscription[] = [];
   job!: Work | undefined;
 
   constructor(
     private detailDialog: MatDialog,
     private calendarMessageService: CalendarMessageService,
+    private calendarUtilsService: CalendarUtilsService,
   ) {}
 
   ngOnInit(): void {
-    this.isCurrentDay = moment(new Date()).format('LL') === this.date.format('LL');
+    /*this.isCurrentDay = moment(new Date()).format('LL') === this.date.format('LL');*/
     this.initSubscriptions();
+    this.dateFormatted = this.calendarUtilsService.getDateFormatted(this.date,  this.dateFormat, 'es-ES');
     this.isLoading = false;
   }
 
@@ -45,7 +51,7 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
   }
 
   private setJob(): void {
-    this.job = this.works.find(work => moment(work.date).format('LL') === this.date.format('LL'));
+    /*this.job = this.works.find(work => moment(work.date).format('LL') === this.date.format('LL'));*/
   }
 
   openDetail(): void {
@@ -53,7 +59,8 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
       width: '800px',
       height: '800px',
       data: {
-        test: this.date.format('LL')
+        /*test: this.date.format('LL')*/
+        test: this.dateFormatted
       }
     })
     this.subscriptions.push(

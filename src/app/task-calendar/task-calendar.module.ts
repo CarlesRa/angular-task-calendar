@@ -8,6 +8,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {TaskCalendarDayComponent} from './task-calendar-day/task-calendar-day.component';
 import {TaskCalendarDayDialogComponent} from './dialogs/task-calendar-day-dialog/task-calendar-day-dialog.component';
 import {CalendarMessageService} from "./services/calendar-message.service";
+import {CalendarUtilsService} from "./services/calendar-utils.service";
 
 
 
@@ -19,6 +20,7 @@ import {CalendarMessageService} from "./services/calendar-message.service";
   ],
   providers: [
     CalendarMessageService,
+    CalendarUtilsService,
   ],
   imports: [
     CommonModule,

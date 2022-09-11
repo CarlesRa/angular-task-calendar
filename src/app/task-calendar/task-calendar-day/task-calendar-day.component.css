@@ -5,7 +5,7 @@
   }
   to {
     transform: scale(1.2);
-    border: 2px solid darkseagreen;
+    border: 2px solid #bababa;
   }
 }
 
@@ -19,5 +19,5 @@
 .task-day-container:hover {
   animation: zoomIn 200ms linear;
   transform: scale(1.2);
-  border: 2px solid darkseagreen;
+  border: 2px solid #bababa;
 }

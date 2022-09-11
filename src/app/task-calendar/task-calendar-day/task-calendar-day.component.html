@@ -2,7 +2,7 @@
   <div class="task-day-container d-flex flex-column p-1" (click)="openDetail()">
     <div class="d-flex justify-content-center ">
       <span [style.color]="isCurrentDay ? 'green' : ''"
-            class="font-weight-bold">{{ date.format('dddd DD') | titlecase }}</span>
+            class="font-weight-bold">{{ dateFormatted }}</span>
     </div>
     <div>
       <ul>
