@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as moment from 'moment';
-import {TOOLBAR_DATE_FORMAT} from "./constants/calendar-constants";
+/*import {TOOLBAR_DATE_FORMAT} from "./constants/calendar-constants";*/
 /*import {Moment} from "moment";*/
 import {CalendarLocale} from "./types/calendar-locale.type";
 import {Work} from "./models/work.model";
@@ -15,7 +15,7 @@ import {CalendarUtilsService} from "./services/calendar-utils.service";
   styleUrls: ['./task-calendar.component.css']
 })
 export class TaskCalendarComponent implements OnInit {
-  @Input() dateLocale: CalendarLocale = 'es';
+  @Input() dateLocale: CalendarLocale = 'es-ES';
   @Input() works: Work[] = [];
   isLoading = true;
   dateFormatted!: string;
@@ -86,7 +86,7 @@ export class TaskCalendarComponent implements OnInit {
   private setDateFormatted(date: Date): void {
     /*this.dateFormatted = moment(date).format(TOOLBAR_DATE_FORMAT);*/
     const dateOptions = { year: 'numeric', month: 'long', } as const;
-    this.dateFormatted = this.calendarUtilsService.getDateFormatted(date, dateOptions, 'es-Es');
+    this.dateFormatted = this.calendarUtilsService.getDateFormatted(date, dateOptions, this.dateLocale);
   }
 
   private setCalendarDates(): void {

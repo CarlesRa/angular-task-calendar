@@ -32,8 +32,9 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     /*this.isCurrentDay = moment(new Date()).format('LL') === this.date.format('LL');*/
-    this.initSubscriptions();
+    this.isCurrentDay = this.calendarUtilsService.isSameDateIgnoringHours(new Date(), this.date);
     this.dateFormatted = this.calendarUtilsService.getDateFormatted(this.date,  this.dateFormat, 'es-ES');
+    this.initSubscriptions();
     this.isLoading = false;
   }
 
@@ -51,6 +52,7 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
   }
 
   private setJob(): void {
+    this.job = this.works.find(work => this.calendarUtilsService.isSameDateIgnoringHours(work.date, this.date));
     /*this.job = this.works.find(work => moment(work.date).format('LL') === this.date.format('LL'));*/
   }
 
