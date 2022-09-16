@@ -1,6 +1,4 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {Moment} from 'moment';
-import * as moment from 'moment';
 import {MatDialog} from "@angular/material/dialog";
 import {Subscription} from "rxjs";
 import {TaskCalendarDayDialogComponent} from "../dialogs/task-calendar-day-dialog/task-calendar-day-dialog.component";
@@ -14,7 +12,6 @@ import {CalendarUtilsService} from "../services/calendar-utils.service";
   styleUrls: ['./task-calendar-day.component.css']
 })
 export class TaskCalendarDayComponent implements OnInit, OnDestroy {
- /* @Input() date!: Moment;*/
   @Input() date!: Date;
   works: Work[] = [];
   subscriptions: Subscription[] = [];
@@ -31,7 +28,6 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    /*this.isCurrentDay = moment(new Date()).format('LL') === this.date.format('LL');*/
     this.isCurrentDay = this.calendarUtilsService.isSameDateIgnoringHours(new Date(), this.date);
     this.dateFormatted = this.calendarUtilsService.getDateFormatted(this.date,  this.dateFormat, 'es-ES');
     this.initSubscriptions();
@@ -53,7 +49,6 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
 
   private setJob(): void {
     this.job = this.works.find(work => this.calendarUtilsService.isSameDateIgnoringHours(work.date, this.date));
-    /*this.job = this.works.find(work => moment(work.date).format('LL') === this.date.format('LL'));*/
   }
 
   openDetail(): void {
@@ -61,7 +56,6 @@ export class TaskCalendarDayComponent implements OnInit, OnDestroy {
       width: '800px',
       height: '800px',
       data: {
-        /*test: this.date.format('LL')*/
         test: this.dateFormatted
       }
     })

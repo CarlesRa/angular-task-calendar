@@ -1,1 +1,1 @@
-export const TOOLBAR_DATE_FORMAT = 'MMMM YYYY';
+
